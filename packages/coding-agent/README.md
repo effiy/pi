@@ -1,16 +1,20 @@
-<p align="center">
-  <a href="https://pi.dev">
-    <img alt="Pi logo" src="https://pi.dev/logo-auto.svg" width="128">
-  </a>
-</p>
-<p align="center">
-  <a href="https://discord.com/invite/3cU7Bz4UPx"><img alt="Discord" src="https://img.shields.io/badge/discord-community-5865F2?style=flat-square&logo=discord&logoColor=white" /></a>
-  <a href="https://www.npmjs.com/package/@earendil-works/pi-coding-agent"><img alt="npm" src="https://img.shields.io/npm/v/@earendil-works/pi-coding-agent?style=flat-square&logo=npm&logoColor=white" /></a>
-</p>
+---
+title: Pi — Minimal, Extensible Agent Harness
+tags: [pi, coding-agent, cli, ai, agent, extensible, typescript]
+category: pi-package
+created: 2024
+updated: 2026-10-20
+source: external
+type: index
+status: stable
+lifecycle: active
+---
 
-> New issues and PRs from new contributors are closed automatically. Maintainers review closed submissions daily. See [CONTRIBUTING.md](https://github.com/earendil-works/pi/blob/main/CONTRIBUTING.md).
+# Pi — Minimal, Extensible Agent Harness
 
-# Pi
+---
+
+## 💡 概述
 
 Pi is a minimal, extensible agent harness that you can make your own.
 
@@ -20,7 +24,61 @@ Pi ships with powerful defaults but skips features like sub-agents and plan mode
 
 Use Pi [interactively](docs/usage.md), automate it in [print or JSON mode](docs/cli.md), control it over [RPC](docs/rpc.md), or build apps with the [Pi TypeScript SDK](docs/sdk.md). See [OpenClaw](https://github.com/OpenClaw/OpenClaw) for a real-world integration.
 
-## Getting started
+---
+
+## ⚡ 功能
+
+- Interactive CLI agent with extensible tool system
+- Extensions API: lifecycle hooks, custom tools, commands, UI customization
+- Skills system: reusable prompt templates and workflows
+- Multiple modes: interactive TUI, print mode, JSON output, RPC server
+- TypeScript SDK for programmatic integration
+- Themes for visual customization
+- Pi packages for sharing extensions via npm or git
+
+---
+
+## 📊 指標
+
+「待補充」
+
+---
+
+## 🏛️ 设计
+
+「待補充」
+
+---
+
+## 📁 目录
+
+- [docs/index.md](docs/index.md) — Full documentation index
+- [docs/extensions.md](docs/extensions.md) — Extension API
+- [docs/skills.md](docs/skills.md) — Skills system
+- [docs/prompt-templates.md](docs/prompt-templates.md) — Prompt templates
+- [docs/themes.md](docs/themes.md) — Themes
+- [docs/packages.md](docs/packages.md) — Pi packages
+- [docs/usage.md](docs/usage.md) — Interactive usage
+- [docs/cli.md](docs/cli.md) — CLI modes
+- [docs/rpc.md](docs/rpc.md) — RPC integration
+- [docs/sdk.md](docs/sdk.md) — TypeScript SDK
+- [docs/quickstart.md](docs/quickstart.md) — Quickstart guide
+
+---
+
+## 🔗 资源
+
+- [Discord](https://discord.com/invite/3cU7Bz4UPx)
+- [npm](https://www.npmjs.com/package/@earendil-works/pi-coding-agent)
+- [OpenClaw](https://github.com/OpenClaw/OpenClaw) — Real-world integration
+- [CONTRIBUTING.md](https://github.com/earendil-works/pi/blob/main/CONTRIBUTING.md)
+- [AGENTS.md](https://github.com/earendil-works/pi/blob/main/AGENTS.md)
+- [pi-share-hf](https://github.com/badlogic/pi-share-hf) — Share OSS sessions on Hugging Face
+- [Published Pi development sessions](https://huggingface.co/datasets/badlogicgames/pi-mono)
+
+---
+
+## 🚀 快速开始
 
 Install the command-line interface:
 
@@ -42,7 +100,7 @@ npm install -g --ignore-scripts @earendil-works/pi-coding-agent
 
 Pi requires Node.js 22.19 or newer. The macOS, Linux, and Windows installers can install it if needed. Pi does not require dependency lifecycle scripts for a normal npm installation.
 
-On macOS and Linux, Nix users can install the latest release with `nix profile add github:earendil-works/pi/stable`. See the [quickstart](docs/quickstart.md#1-install-pi) for updating and pinning releases.
+On macOS and Linux, Nix users can install the latest release with `nix profile add github:earendil-works/pi/stable`.
 
 Start Pi in the directory where you want it to work:
 
@@ -55,20 +113,7 @@ For a built-in AI provider, run `/login` inside Pi to connect a subscription or 
 
 See the [documentation](docs/index.md) for full setup and usage instructions.
 
-## Share your OSS coding agent sessions
-
-If you use Pi for open source work, please share your coding agent sessions.
-
-Public OSS session data helps improve models, prompts, tools, and evaluations using real development workflows.
-
-For the full explanation, see [this post on X](https://x.com/badlogicgames/status/2037811643774652911).
-
-To publish sessions, use [`badlogic/pi-share-hf`](https://github.com/badlogic/pi-share-hf) using a Hugging Face account and the Hugging Face CLI.
-
-- [Demo video](https://x.com/badlogicgames/status/2041151967695634619) on how to publish Pi sessions
-- Published Pi development sessions: [`badlogicgames/pi-mono` on Hugging Face](https://huggingface.co/datasets/badlogicgames/pi-mono).
-
-## Development
+### Development
 
 Clone the repository, install its dependencies, and run Pi from source:
 
@@ -88,8 +133,13 @@ npm run check
 ./test.sh
 ```
 
-Read [CONTRIBUTING.md](https://github.com/earendil-works/pi/blob/main/CONTRIBUTING.md) before opening an issue or pull request. It defines the contribution gate, issue quality bar, and required checks. Read [AGENTS.md](https://github.com/earendil-works/pi/blob/main/AGENTS.md) for repository-specific implementation, testing, dependency, and release rules.
+---
 
-## License
+## ⚙️ 技术栈
 
-MIT
+- TypeScript
+- Node.js 22.19+
+- Terminal UI (TUI)
+- Extensible plugin architecture
+- RPC client/server
+- License: MIT

@@ -1,4 +1,20 @@
-# Issue triage
+---
+title: Issue Triage Tool
+tags: [issues, triage, durable-agent, github, web-ui]
+category: tool
+created: 2025
+updated: 2026-10-20
+source: external
+type: index
+status: stable
+lifecycle: active
+---
+
+# Issue Triage
+
+---
+
+## 💡 概述
 
 A local tool for the daily issue review. It runs in this order:
 
@@ -12,6 +28,12 @@ A local tool for the daily issue review. It runs in this order:
 
 Decisions are stored locally only. Nothing is written to GitHub yet.
 
+---
+
+## ⚡ 功能
+
+### State files
+
 All state lives in `data/` (gitignored):
 
 - `corpus.json`: the local copy of the issues
@@ -20,7 +42,23 @@ All state lives in `data/` (gitignored):
 
 Restarting the server resumes any triage runs that were in flight.
 
-## Files
+### UI keys
+
+- `j`/`k`: move between issues
+- `0`, `1`, `n`: set p0, p1, none
+- `o`: open the issue on GitHub
+
+---
+
+## 📊 指標
+
+「待補充」
+
+---
+
+## 🏛️ 設計
+
+### Files
 
 - `categories/*.md`: one file per category. The file name is the category label. The frontmatter `owner` is the GitHub user who owns the category.
 - `prompt.md`: the triage procedure and priority guidance given to the agent.
@@ -30,7 +68,21 @@ Restarting the server resumes any triage runs that were in flight.
 - `ui.html`: the web UI.
 - `source-hooks.mjs`, `register.mjs`: run workspace packages from source, so no build is needed.
 
-## Run
+---
+
+## 📁 目录
+
+「待補充」
+
+---
+
+## 🔗 资源
+
+「待補充」
+
+---
+
+## 🚀 快速开始
 
 ```bash
 ./scripts/issues/run.sh   # http://127.0.0.1:7788
@@ -39,6 +91,8 @@ Restarting the server resumes any triage runs that were in flight.
 Open `http://127.0.0.1:7788/?t=<token>` once, with the token from `scripts/issues/data/token`. The server then sets a cookie, so later visits don't need the token.
 
 The agent authenticates through `~/.pi/agent/auth.json`, the same credentials pi uses.
+
+### Environment variables
 
 | Variable | Default | |
 |---|---|---|
@@ -52,8 +106,12 @@ The agent authenticates through `~/.pi/agent/auth.json`, the same credentials pi
 | `TRIAGE_SOCKET` | | Listen on this unix socket instead of the port, for a reverse proxy |
 | `TRIAGE_DATA` | `scripts/issues/data` | State directory |
 
-## UI keys
+---
 
-- `j`/`k`: move between issues
-- `0`, `1`, `n`: set p0, p1, none
-- `o`: open the issue on GitHub
+## ⚙️ 技术栈
+
+- TypeScript
+- pi-durable for agent conversations
+- `gh api` for GitHub issue sync
+- Web UI (HTML/JS)
+- SQLite for triage storage

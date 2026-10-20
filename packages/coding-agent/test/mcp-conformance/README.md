@@ -1,4 +1,20 @@
-# MCP client conformance
+---
+title: MCP Client Conformance Testing
+tags: [mcp, conformance, testing, protocol, ci]
+category: testing
+created: 2025
+updated: 2026-10-20
+source: external
+type: index
+status: stable
+lifecycle: active
+---
+
+# MCP Client Conformance
+
+---
+
+## 💡 概述
 
 Runs the official [MCP conformance suite](https://github.com/modelcontextprotocol/conformance) against pi's MCP client and compares the result with a committed baseline.
 
@@ -8,7 +24,9 @@ npm run test:mcp-conformance
 
 CI runs it in the `mcp-conformance` job of `.github/workflows/ci.yml`. Requires network access the first time, to fetch the pinned suite (`@modelcontextprotocol/conformance@0.2.0-alpha.11`) with `npx`. Install scripts are disabled. Needs a POSIX shell.
 
-## How it works
+---
+
+## ⚡ 功能
 
 For every protocol version pi negotiates (`2025-03-26`, `2025-06-18`, `2025-11-25`), `run.ts` lists the suite's client scenarios and runs them one at a time. The suite starts a scenario server and runs `client.ts` against it.
 
@@ -24,7 +42,17 @@ The run fails when:
 
 Checks that started passing are reported; update the baseline to lock them in.
 
-## Options
+---
+
+## 📊 指標
+
+「待補充」
+
+---
+
+## 🏛️ 設計
+
+### Options
 
 ```bash
 node packages/coding-agent/test/mcp-conformance/run.ts --mode 2025-11-25 --scenario auth/scope-step-up --verbose
@@ -36,10 +64,39 @@ node packages/coding-agent/test/mcp-conformance/run.ts --update-baseline
 - `--keep-results`: keep the suite's `checks.json` and client output.
 - `--update-baseline`: write the results of a full run to `baseline.json`. Review the diff; do not regenerate it to hide a regression.
 
-## Known failures
+### Known failures
 
 - `elicitation-sep1034-client-defaults`: pi does not support elicitation.
 - `auth/basic-cimd`: pi registers clients dynamically instead of using a Client ID Metadata Document.
 - `auth/scope-retry-limit`: `pi-client` fails by design; the server never accepts the granted scope.
 
 2026-07-28 is not covered: it is a stateless protocol pi does not implement.
+
+---
+
+## 📁 目录
+
+「待補充」
+
+---
+
+## 🔗 资源
+
+「待補充」
+
+---
+
+## 🚀 快速开始
+
+```bash
+cd packages/coding-agent
+node test/mcp-conformance/run.ts
+```
+
+---
+
+## ⚙️ 技术栈
+
+- TypeScript (Node strip-only mode)
+- MCP conformance suite (`@modelcontextprotocol/conformance@0.2.0-alpha.11`)
+- pi MCP client (`McpServerConnection`, `signInMcpServer`)

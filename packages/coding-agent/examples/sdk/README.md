@@ -1,10 +1,28 @@
+---
+title: SDK Examples - Programmatic Usage of pi-coding-agent
+tags: [coding-agent, sdk, examples, agent-session, typescript]
+category: examples
+created: 2025
+updated: 2026-10-20
+source: external
+type: index
+status: stable
+lifecycle: active
+---
+
 # SDK Examples
+
+---
+
+## 💡 概述
 
 Programmatic usage of pi-coding-agent via `createAgentSession()` and `createAgentSessionRuntime()`.
 
 The runtime example shows how to build a recreate function that closes over process-global fixed inputs and recreates cwd-bound services and sessions as the active session cwd changes.
 
-## Examples
+---
+
+## ⚡ 功能
 
 | File | Description |
 |------|-------------|
@@ -23,14 +41,76 @@ The runtime example shows how to build a recreate function that closes over proc
 | `13-session-runtime.ts` | Manage runtime-backed session replacement |
 | `14-codemode-mcp.ts` | Add the `codemode`, `tool_search`, and MCP extensions |
 
-## Running
+---
+
+## 📊 指標
+
+「待補充」
+
+---
+
+## 🏛️ 設計
+
+### Options
+
+| Option | Default | Description |
+|--------|---------|-------------|
+| `modelRuntime` | Runtime using `agentDir/auth.json` and `models.json` | Canonical model and authentication runtime |
+| `cwd` | `process.cwd()` | Working directory |
+| `agentDir` | `~/.pi/agent` | Config directory |
+| `model` | From settings/first available | Model to use |
+| `thinkingLevel` | From settings/"off" | off, low, medium, high |
+| `tools` | `["read", "bash", "edit", "write"]` built-ins | Allowlist tool names across built-in, extension, and custom tools |
+| `customTools` | `[]` | Additional tool definitions |
+| `resourceLoader` | DefaultResourceLoader | Resource loader for extensions, skills, prompts, themes, and context files |
+| `sessionManager` | `SessionManager.create(cwd)` | Persistence |
+| `settingsManager` | `SettingsManager.create(cwd, agentDir)` | Settings overrides |
+
+### Events
+
+```typescript
+session.subscribe((event) => {
+  switch (event.type) {
+    case "message_update":
+      if (event.assistantMessageEvent.type === "text_delta") {
+        process.stdout.write(event.assistantMessageEvent.delta);
+      }
+      break;
+    case "tool_execution_start":
+      console.log(`Tool: ${event.toolName}`);
+      break;
+    case "tool_execution_end":
+      console.log(`Result: ${event.result}`);
+      break;
+    case "agent_settled":
+      console.log("Done");
+      break;
+  }
+});
+```
+
+---
+
+## 📁 目录
+
+「待補充」
+
+---
+
+## 🔗 资源
+
+「待補充」
+
+---
+
+## 🚀 快速开始
 
 ```bash
 cd packages/coding-agent
 node examples/sdk/01-minimal.ts
 ```
 
-## Quick Reference
+### Quick Reference
 
 ```typescript
 import { getModel } from "@earendil-works/pi-ai";
@@ -102,40 +182,10 @@ session.subscribe((event) => {
 await session.prompt("Hello");
 ```
 
-## Options
+---
 
-| Option | Default | Description |
-|--------|---------|-------------|
-| `modelRuntime` | Runtime using `agentDir/auth.json` and `models.json` | Canonical model and authentication runtime |
-| `cwd` | `process.cwd()` | Working directory |
-| `agentDir` | `~/.pi/agent` | Config directory |
-| `model` | From settings/first available | Model to use |
-| `thinkingLevel` | From settings/"off" | off, low, medium, high |
-| `tools` | `["read", "bash", "edit", "write"]` built-ins | Allowlist tool names across built-in, extension, and custom tools |
-| `customTools` | `[]` | Additional tool definitions |
-| `resourceLoader` | DefaultResourceLoader | Resource loader for extensions, skills, prompts, themes, and context files |
-| `sessionManager` | `SessionManager.create(cwd)` | Persistence |
-| `settingsManager` | `SettingsManager.create(cwd, agentDir)` | Settings overrides |
+## ⚙️ 技术栈
 
-## Events
-
-```typescript
-session.subscribe((event) => {
-  switch (event.type) {
-    case "message_update":
-      if (event.assistantMessageEvent.type === "text_delta") {
-        process.stdout.write(event.assistantMessageEvent.delta);
-      }
-      break;
-    case "tool_execution_start":
-      console.log(`Tool: ${event.toolName}`);
-      break;
-    case "tool_execution_end":
-      console.log(`Result: ${event.result}`);
-      break;
-    case "agent_settled":
-      console.log("Done");
-      break;
-  }
-});
-```
+- TypeScript (Node strip-only mode)
+- `@earendil-works/pi-coding-agent`
+- `@earendil-works/pi-ai`

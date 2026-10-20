@@ -1,8 +1,26 @@
+---
+title: Plan Mode Extension — Read-Only Exploration with Step Tracking
+tags: [pi, extension, plan-mode, read-only, safety, code-analysis]
+category: pi-example
+created: 2024
+updated: 2026-10-20
+source: external
+type: index
+status: stable
+lifecycle: active
+---
+
 # Plan Mode Extension
+
+---
+
+## 💡 概述
 
 Read-only exploration mode for safe code analysis.
 
-## Features
+---
+
+## ⚡ 功能
 
 - **Built-in write tools disabled**: Disables edit/write while preserving other active tools
 - **Bash allowlist**: Only read-only bash commands are allowed
@@ -11,30 +29,15 @@ Read-only exploration mode for safe code analysis.
 - **[DONE:n] markers**: Explicit step completion tracking
 - **Session persistence**: State survives session resume
 
-## Commands
+---
 
-- `/plan` - Toggle plan mode
-- `/todos` - Show current plan progress
-- `Ctrl+Alt+P` - Toggle plan mode (shortcut)
+## 📊 指標
 
-## Usage
+「待補充」
 
-1. Enable plan mode with `/plan` or `--plan` flag
-2. Ask the agent to analyze code and create a plan
-3. The agent should output a numbered plan under a `Plan:` header:
+---
 
-```
-Plan:
-1. First step description
-2. Second step description
-3. Third step description
-```
-
-4. Choose "Execute the plan" when prompted
-5. During execution, the agent marks steps complete with `[DONE:n]` tags
-6. Progress widget shows completion status
-
-## How It Works
+## 🏛️ 设计
 
 ### Plan Mode (Read-Only)
 - Built-in edit/write tools disabled
@@ -64,3 +67,49 @@ Blocked commands:
 - Package install: `npm install`, `yarn add`, `pip install`
 - System: `sudo`, `kill`, `reboot`
 - Editors: `vim`, `nano`, `code`
+
+---
+
+## 📁 目录
+
+「待補充」
+
+---
+
+## 🔗 资源
+
+「待補充」
+
+---
+
+## 🚀 快速开始
+
+1. Enable plan mode with `/plan` or `--plan` flag
+2. Ask the agent to analyze code and create a plan
+3. The agent should output a numbered plan under a `Plan:` header:
+
+```
+Plan:
+1. First step description
+2. Second step description
+3. Third step description
+```
+
+4. Choose "Execute the plan" when prompted
+5. During execution, the agent marks steps complete with `[DONE:n]` tags
+6. Progress widget shows completion status
+
+### Commands
+
+- `/plan` - Toggle plan mode
+- `/todos` - Show current plan progress
+- `Ctrl+Alt+P` - Toggle plan mode (shortcut)
+
+---
+
+## ⚙️ 技术栈
+
+- Pi extension API
+- Bash command filtering and allowlisting
+- Widget-based progress tracking
+- Session persistence for plan state

@@ -1,8 +1,58 @@
-# Darwin native prebuilds
+---
+title: Darwin Native Prebuilds for Pi TUI
+tags: [tui, native, darwin, macos, appkit, clipboard]
+category: native
+created: 2025
+updated: 2026-10-20
+source: external
+type: index
+status: stable
+lifecycle: active
+---
+
+# Darwin Native Prebuilds
+
+---
+
+## 💡 概述
 
 Provides modifier-key state and asynchronous text, image, and file-path clipboard access using AppKit.
 
-## Building
+---
+
+## ⚡ 功能
+
+「待補充」
+
+---
+
+## 📊 指標
+
+「待補充」
+
+---
+
+## 🏛️ 設計
+
+「待補充」
+
+---
+
+## 📁 目录
+
+「待補充」
+
+---
+
+## 🔗 资源
+
+「待補充」
+
+---
+
+## 🚀 快速开始
+
+### Building
 
 On macOS, run from the repository root:
 
@@ -20,3 +70,11 @@ CC=/path/to/osxcross/clang SDKROOT=/path/to/MacOSX.sdk \
 ```
 
 The SDK must be obtained and used under Apple's license. Plain clang or Zig alone is not sufficient.
+
+---
+
+## ⚙️ 技术栈
+
+- C / Objective-C (AppKit)
+- Apple clang + macOS SDK (via xcrun)
+- Cross-compilation via osxcross
